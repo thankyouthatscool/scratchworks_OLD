@@ -1,0 +1,21 @@
+{
+  "name": "scratchworks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:thankyouthatscool/scratchworks.git",
+  "author": "thankyouthatscool <85291297+thankyouthatscool@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*"
+    ]
+  },
+  "scripts": {
+    "open:all": "yarn open:app & yarn open:server",
+    "open:app": "code ./apps/inertiion",
+    "open:server": "code ./apps/scratchworks-backend",
+    "start:containers": "cd ./apps/scratchworks-backend && docker compose up",
+    "start:tunnel": "cd C:/Users/ozahn/Documents/source/scratchworks && ngrok http 5000"
+  }
+}
