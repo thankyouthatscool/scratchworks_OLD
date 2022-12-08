@@ -68,8 +68,6 @@ export const authScreenStyles = StyleSheet.create({
 
     justifyContent: "center",
 
-    marginVertical: APP_PADDING_SIZE,
-
     padding: APP_PADDING_SIZE * 2,
   },
   text: {
