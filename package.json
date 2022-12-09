@@ -15,7 +15,7 @@
     "open:all": "yarn open:app & yarn open:server",
     "open:app": "code ./apps/inertiion",
     "open:server": "code ./apps/scratchworks-backend",
-    "start:containers": "cd ./apps/scratchworks-backend && docker compose up",
+    "start:containers": "cd ./apps/scratchworks-backend && docker compose up -d",
     "start:tunnel": "cd C:/Users/ozahn/Documents/source/scratchworks && ngrok http 5000"
   }
 }

@@ -13,6 +13,10 @@ const uploadOrderImage = publicProcedure
   .input(imageUploadInput)
   .mutation(async ({ input: { imageName } }) => {
     const s3 = new AWS.S3({
+      credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+      },
       signatureVersion: "v4",
     });
 
@@ -29,6 +33,10 @@ const analyzeImage = publicProcedure
   .input(analyzeImageInput)
   .mutation(async ({ input: { imageName } }) => {
     const textract = new AWS.Textract({
+      credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+      },
       signatureVersion: "v4",
       region: "us-east-1",
     });
