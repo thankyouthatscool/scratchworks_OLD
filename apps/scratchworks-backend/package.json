@@ -10,8 +10,11 @@
     "dev": "yarn nodemon"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.226.0",
+    "@aws-sdk/s3-request-presigner": "^3.226.0",
     "@prisma/client": "^4.7.1",
     "@trpc/server": "^10.4.3",
+    "aws-sdk": "^2.1270.0",
     "axios": "^1.2.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",

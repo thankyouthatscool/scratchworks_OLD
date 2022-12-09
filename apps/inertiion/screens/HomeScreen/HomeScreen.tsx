@@ -1,25 +1,28 @@
-import * as SecureStore from "expo-secure-store";
-import { Button, Text } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text } from "react-native";
 
 import { ScreenContainer } from "@components/ScreenContainer";
-import { useAppDispatch } from "@hooks";
-import { clearUser } from "@store";
+import { HomeScreenRoot } from "@screens/HomeScreenRoot";
+import { PickOrderScreen } from "@screens/PickOrderScreen";
+import { HomeScreenNavigatorProps } from "@types";
+
+const HomeScreenNavigator =
+  createNativeStackNavigator<HomeScreenNavigatorProps>();
 
 export const HomeScreen = () => {
-  const dispatch = useAppDispatch();
-
   return (
-    <ScreenContainer>
-      <Text>Home Screen</Text>
-      <Button
-        onPress={async () => {
-          await SecureStore.deleteItemAsync("token");
-          await SecureStore.deleteItemAsync("userData");
-
-          dispatch(clearUser());
-        }}
-        title="sign out"
+    <HomeScreenNavigator.Navigator
+      initialRouteName="HomeScreenRoot"
+      screenOptions={{ animation: "slide_from_right", headerShown: false }}
+    >
+      <HomeScreenNavigator.Screen
+        component={HomeScreenRoot}
+        name="HomeScreenRoot"
       />
-    </ScreenContainer>
+      <HomeScreenNavigator.Screen
+        component={PickOrderScreen}
+        name="PickOrderScreen"
+      />
+    </HomeScreenNavigator.Navigator>
   );
 };

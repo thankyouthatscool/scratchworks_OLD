@@ -16,6 +16,11 @@ export type AuthNavigatorProps = {
   SignUpScreen: { email?: string };
 };
 
+export type HomeScreenNavigatorProps = {
+  HomeScreenRoot: undefined;
+  PickOrderScreen: undefined;
+};
+
 // Screens
 export type LoginScreenProps = CompositeScreenProps<
   NativeStackScreenProps<AuthNavigatorProps, "LoginScreen">,
@@ -29,5 +34,10 @@ export type SignUpScreenProps = CompositeScreenProps<
 
 export type ForgotPasswordScreenProps = CompositeScreenProps<
   NativeStackScreenProps<AuthNavigatorProps, "ForgotPasswordScreen">,
+  DrawerScreenProps<RootNavigatorProps>
+>;
+
+export type HomeScreenProps = CompositeScreenProps<
+  NativeStackScreenProps<HomeScreenNavigatorProps, "HomeScreenRoot">,
   DrawerScreenProps<RootNavigatorProps>
 >;
