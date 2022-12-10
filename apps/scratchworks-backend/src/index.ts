@@ -1,11 +1,13 @@
+import "module-alias/register";
+
 import * as trpcExpress from "@trpc/server/adapters/express";
 import axios, { AxiosError } from "axios";
 import { config } from "dotenv";
 import express from "express";
 import { exit } from "process";
 
-import { appRouter, createContext } from "./trpc";
-import { updateAppApiUrl } from "./utils";
+import { appRouter, createContext } from "@router";
+import { updateAppApiUrl } from "@utils";
 
 export { User } from "@prisma/client";
 export * from "./trpc";

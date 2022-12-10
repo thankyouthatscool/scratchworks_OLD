@@ -4,7 +4,7 @@ import { sign, verify } from "jsonwebtoken";
 import { z } from "zod";
 
 import { publicProcedure, router } from "..";
-import { prisma } from "../../db";
+import { prisma } from "@db";
 
 const GENERIC_ERROR_MESSAGE = "Something went wrong. Please try again later.";
 
