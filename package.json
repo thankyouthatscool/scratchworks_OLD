@@ -12,11 +12,12 @@
     ]
   },
   "scripts": {
-    "build:server:image": "cd ./apps/scratchworks-backend && docker build . -t scratchworks-backend-server",
-    "initialize:server:container": "cd ./apps/scratchworks-backend && docker rm scratchworks-backend-server && docker run -d --name scratchworks-backend-server -p 5000:5000 scratchworks-backend-server",
+    "build:server:image": "cd ./apps/scratchworks-backend && docker build . -t ozahnitko/scratchworks-backend-server",
+    "initialize:server:container": "cd ./apps/scratchworks-backend && docker run -d --name scratchworks-backend-server -p 5000:5000 ozahnitko/scratchworks-backend-server",
     "open:all": "yarn open:app & yarn open:server",
     "open:app": "code ./apps/inertiion",
     "open:server": "code ./apps/scratchworks-backend",
+    "restart:server:container": "cd ./apps/scratchworks-backend && docker rm scratchworks-backend-server && docker run -d --name scratchworks-backend-server -p 5000:5000 ozahnitko/scratchworks-backend-server",
     "start:container:server": "docker start scratchworks-backend-server",
     "start:services": "cd ./apps/scratchworks-backend && docker compose up -d",
     "start:tunnel": "cd C:/Users/ozahn/Documents/source/scratchworks && ngrok http 5000",
