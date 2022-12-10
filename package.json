@@ -17,7 +17,7 @@
     "open:all": "yarn open:app & yarn open:server",
     "open:app": "code ./apps/inertiion",
     "open:server": "code ./apps/scratchworks-backend",
-    "pull:image:server": "docker push ozahnitko/scratchworks-backend-server",
+    "pull:image:server": "docker pull ozahnitko/scratchworks-backend-server",
     "push:image:server": "docker push ozahnitko/scratchworks-backend-server",
     "restart:container:server": "cd ./apps/scratchworks-backend && docker rm scratchworks-backend-server && docker run -d --name scratchworks-backend-server -p 5000:5000 ozahnitko/scratchworks-backend-server",
     "start:container:server": "docker start scratchworks-backend-server",
