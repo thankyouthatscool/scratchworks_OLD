@@ -71,6 +71,7 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+.api.env
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -104,4 +105,3 @@ dist
 .tern-port
 
 ngrok.exe
-.api.env
