@@ -88,7 +88,7 @@ const verifyToken = publicProcedure
 
       return { status: "OK" };
     } catch {
-      return { status: "INVALID" };
+      throw new Error("Invalid token.");
     }
   });
 

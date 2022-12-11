@@ -20,7 +20,8 @@ export const PickOrderScreen = () => {
   const { mutateAsync: uploadOrderImageMutateAsync } =
     trpc.order.uploadOrderImage.useMutation();
 
-  const { mutateAsync } = trpc.order.analyzeImage.useMutation();
+  const { mutateAsync: analyzeOrderImageMutateAsync } =
+    trpc.order.analyzeOrderImage.useMutation();
 
   const handlePickImage = async (imageSource: "camera" | "library") => {
     try {
@@ -58,7 +59,7 @@ export const PickOrderScreen = () => {
           pickOrderScreenToastSettings
         );
 
-        const cells = await mutateAsync({ imageName });
+        const cells = await analyzeOrderImageMutateAsync({ imageName });
 
         console.log(cells.length);
       }

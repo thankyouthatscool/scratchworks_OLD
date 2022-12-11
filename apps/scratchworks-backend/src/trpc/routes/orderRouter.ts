@@ -29,7 +29,7 @@ const uploadOrderImage = publicProcedure
     return signedUrl;
   });
 
-const analyzeImage = publicProcedure
+const analyzeOrderImage = publicProcedure
   .input(analyzeImageInput)
   .mutation(async ({ input: { imageName } }) => {
     const textract = new AWS.Textract({
@@ -73,4 +73,4 @@ const analyzeImage = publicProcedure
     }
   });
 
-export const orderRouter = router({ analyzeImage, uploadOrderImage });
+export const orderRouter = router({ analyzeOrderImage, uploadOrderImage });

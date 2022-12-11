@@ -2,20 +2,30 @@ import {
   createDrawerNavigator,
   DrawerContentComponentProps,
   DrawerContentScrollView,
+  DrawerItem,
   DrawerItemList,
 } from "@react-navigation/drawer";
 import * as SecureStorage from "expo-secure-store";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useRef } from "react";
 import { Text, View } from "react-native";
+import Toast from "react-native-root-toast";
 
-import { useAppDispatch, useAppSelector } from "@hooks";
+import { useAppDispatch, useAppSelector, useAuthHooks } from "@hooks";
 import { AuthScreen } from "@screens/AuthScreen";
 import { HomeScreen } from "@screens/HomeScreen";
 import { clearUser, setUser } from "@store";
 import { APP_FONT_SIZE } from "@theme";
 import { LocalUser, RootNavigatorProps } from "@types";
 import { trpc } from "@utils";
+
+const appRootToastSettings = {
+  animation: true,
+  duration: Toast.durations.SHORT,
+  hideOnPress: true,
+  position: Toast.positions.BOTTOM,
+  shadow: true,
+};
 
 const RootNavigator = createDrawerNavigator<RootNavigatorProps>();
 
@@ -48,12 +58,16 @@ export const AppRoot = () => {
         });
 
         if (status !== "OK") {
-          await SecureStorage.deleteItemAsync("token");
-          await SecureStorage.deleteItemAsync("userData");
-
-          dispatch(clearUser());
+          throw new Error("Invalid token.");
         }
-      } catch {
+      } catch (e) {
+        if (e instanceof Error) {
+          Toast.show(
+            `${e.message}\nPlease log in again.`,
+            appRootToastSettings
+          );
+        }
+
         await SecureStorage.deleteItemAsync("token");
         await SecureStorage.deleteItemAsync("userData");
 
@@ -96,6 +110,10 @@ export const AppRoot = () => {
 };
 
 export const CustomDrawer = (props: DrawerContentComponentProps) => {
+  const { signOut } = useAuthHooks();
+
+  const { user } = useAppSelector(({ app }) => app);
+
   return (
     <DrawerContentScrollView {...props}>
       <View
@@ -110,6 +128,16 @@ export const CustomDrawer = (props: DrawerContentComponentProps) => {
         </Text>
       </View>
       <DrawerItemList {...props} />
+      {!!user && (
+        <DrawerItem
+          label="Sign Out"
+          onPress={async () => {
+            await signOut();
+
+            props.navigation.closeDrawer();
+          }}
+        />
+      )}
     </DrawerContentScrollView>
   );
 };
