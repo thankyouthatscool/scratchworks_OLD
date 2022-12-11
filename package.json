@@ -12,7 +12,7 @@
     ]
   },
   "scripts": {
-    "build:image:server": "cd ./apps/scratchworks-backend && docker build . -t ozahnitko/scratchworks-backend-server",
+    "build:image:server": "cd ./apps/scratchworks-backend && docker build . -t ozahnitko/scratchworks-backend-server:latest",
     "initialize:container:server": "docker run -d --name scratchworks-backend-server -p 5000:5000 ozahnitko/scratchworks-backend-server:latest",
     "open:all": "yarn open:app & yarn open:server",
     "open:app": "code ./apps/inertiion",
