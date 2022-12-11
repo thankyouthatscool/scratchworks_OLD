@@ -1,6 +1,8 @@
 # scratchworks
 
-## Restarting the server
+## Bash Scripts
+
+### Restarting the server
 
 ```bash
 ssh -i box.pem ubuntu@ec2-54-234-149-176.compute-1.amazonaws.com "
@@ -11,7 +13,7 @@ docker run -d --name scratchworks-backend-server -p 5000:5000 ozahnitko/scratchw
 docker image prune --force"
 ```
 
-## Updating the repository
+### Updating the repository
 
 ```bash
 ssh -i box.pem ubuntu@ec2-54-234-149-176.compute-1.amazonaws.com "
