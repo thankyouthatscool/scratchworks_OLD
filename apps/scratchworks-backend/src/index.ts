@@ -19,7 +19,7 @@ const NODE_ENV = process.env.NODE_ENV;
 const app = express();
 
 app.get("/", (_, res) => {
-  return res.status(200).json({ message: "zoopies" });
+  return res.status(200).json({ message: "OK" });
 });
 
 app.use(
