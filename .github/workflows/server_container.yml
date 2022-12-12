@@ -25,6 +25,12 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:apps/scratchworks-backend-server"
+          context: "{{defaultContext}}:apps/scratchworks-backend"
           push: true
-          tags: ozahnitko/scratchworks-backend:dev-latest
+          tags: ozahnitko/scratchworks-backend-server:dev-latest
+
+      - run: |
+          echo "$KEY" > key.pem
+          cat key.pem
+        env:
+          KEY: ${{secrets.KEY}}
