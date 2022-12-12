@@ -30,6 +30,7 @@ jobs:
           tags: ozahnitko/scratchworks-backend-server:dev-latest
 
   update_server:
+    needs: docker
     runs-on: ubuntu-latest
     steps:
       - name: Update
