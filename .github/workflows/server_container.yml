@@ -36,10 +36,12 @@ jobs:
       - name: Update
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
         run: |
           echo "$SSH_KEY" > key && chmod 600 key
           ls -la
-          ssh -i key ubuntu@ec2-54-234-149-176.compute-1.amazonaws.com "
+          ssh -o StrictHostKeyChecking=no -i key ${USERNAME}@${SERVER_HOST} "
             ls -la
             docker ps
           "
