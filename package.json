@@ -21,7 +21,8 @@
     "push:image:server": "docker push ozahnitko/scratchworks-backend-server:latest",
     "remove:container:server": "docker rm scratchworks-backend-server",
     "start:container:server": "docker start scratchworks-backend-server",
-    "start:services": "cd ./apps/scratchworks-backend && docker compose up -d",
+    "start:services:dev": "docker compose -f ./apps/scratchworks-backend/docker-compose-dev.yml -p scratchworks-backend-dev up -d",
+    "start:services:prod": "docker compose -f ./apps/scratchworks-backend/docker-compose-prod.yml -p scratchworks-backend-prod up -d",
     "start:tunnel": "cd C:/Users/ozahn/Documents/source/scratchworks && ngrok http 5000",
     "stop:container:server": "docker stop scratchworks-backend-server"
   }
