@@ -30,10 +30,10 @@ jobs:
       #     tags: ozahnitko/scratchworks-backend-server:dev-latest
 
       - run: |
-          echo "$KEY" > box.pem
-          cat box.pem
-          chmod 400 box.pem
-          ssh -i box.pem ubuntu@ec2-54-234-149-176.compute-1.amazonaws.com "
+          echo "${{ secrets.SSH_KEY }}" | tr -d '\r' > key.pem
+          cat key.pem
+          chmod 400 key.pem
+          ssh -i key.pem ubuntu@ec2-54-234-149-176.compute-1.amazonaws.com "
           docker ps
           "
         env:
