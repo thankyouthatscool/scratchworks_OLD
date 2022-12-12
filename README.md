@@ -6,10 +6,10 @@
 
 ```bash
 ssh -i box.pem ubuntu@ec2-54-234-149-176.compute-1.amazonaws.com "
-docker pull ozahnitko/scratchworks-backend-server:latest &&
+docker pull ozahnitko/scratchworks-backend-server:dev-latest &&
 docker stop scratchworks-backend-server &&
 docker rm scratchworks-backend-server &&
-docker run -d --name scratchworks-backend-server --network container:postgres ozahnitko/scratchworks-backend-server:latest &&
+docker run -d --name scratchworks-backend-server --network container:postgres ozahnitko/scratchworks-backend-server:dev-latest &&
 docker image prune --force"
 ```
 
