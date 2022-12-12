@@ -41,4 +41,5 @@ jobs:
           ls -la
           ssh -o StrictHostKeyChecking=no -i key ubuntu@ec2-54-234-149-176.compute-1.amazonaws.com "
             ls -la
+            docker ps
           "
