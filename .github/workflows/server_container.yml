@@ -26,5 +26,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: "{{defaultContext}}:apps/scratchworks-backend"
-          push: false
-          tags: ozahnitko/scratchworks-backend:latest
+          push: true
+          tags: ozahnitko/scratchworks-backend:dev-latest
