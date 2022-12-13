@@ -39,10 +39,13 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Publish update
+      - name: Update secrets
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
         run: |
-          cd apps/inertiion
+          yarn ts-node utils/eas.ts
 
-          eas secret:create --scope project --name ACTIONS_TEST --value ZOOP --type string
-
-          eas update --auto
+      # - name: Publish update
+      #   run: |
+      #     cd apps/inertiion
+      #     eas update --auto
