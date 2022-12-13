@@ -2,7 +2,7 @@ name: Build application
 
 on:
   push:
-    branches: "preview"
+    branches: "development"
 
 jobs:
   update_app:
