@@ -15,7 +15,11 @@ module.exports = {
     },
     extra: {
       apiUrl: process.env.apiUrl,
-      eas: { projectId: "ec9386aa-6995-41ce-9fe4-5185f7fde0ae" },
+      APPLICATION_NAME: process.env.APPLICATION_NAME,
+      CLI_TEST: process.env.CLI_TEST,
+      eas: {
+        projectId: "ec9386aa-6995-41ce-9fe4-5185f7fde0ae",
+      },
     },
     splash: {
       image: "./assets/splash.png",

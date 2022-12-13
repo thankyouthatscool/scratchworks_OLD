@@ -6,7 +6,7 @@
     "start": "dotenv -e .env -e .api.env expo start -c",
     "start:android": "yarn start --android",
     "build:android:dev": "yarn eas build --profile development --platform android --no-wait",
-    "build:android:preview": "yarn eas build --profile preview --platform android --no-wait"
+    "update:android:dev": "yarn eas update --branch development --non-interactive --message"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",

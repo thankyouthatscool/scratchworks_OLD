@@ -21,10 +21,13 @@ const updateSecrets = async () => {
   const { stdout: secretDeleteOutput } = await execPromise(
     `cd apps/inertiion && eas secret:delete --id ${secretId} --non-interactive`
   );
+
   console.log(secretDeleteOutput);
+
   const { stdout: create } = await execPromise(
-    `cd apps/inertiion && eas secret:create --scope project --name CLI_TEST --value ${SERVER_HOST} --type string --non-interactive`
+    `cd apps/inertiion && eas secret:create --scope project --name CLI_TEST --value ${SERVER_HOST}911 --type string --non-interactive`
   );
+
   console.log(create);
 };
 
