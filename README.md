@@ -5,7 +5,7 @@
 ### Restarting the server
 
 ```bash
-ssh -i box.pem ubuntu@ec2-54-234-149-176.compute-1.amazonaws.com "
+ssh -i key ${USERNAME}@${SERVER_HOST} "
 docker pull ozahnitko/scratchworks-backend-server:dev-latest &&
 docker stop scratchworks-backend-server &&
 docker rm scratchworks-backend-server &&
@@ -16,7 +16,7 @@ docker image prune --force"
 ### Updating the repository
 
 ```bash
-ssh -i box.pem ubuntu@ec2-54-234-149-176.compute-1.amazonaws.com "
+ssh -i key ${USERNAME}@${SERVER_HOST} "
 cd source/scratchworks &&
 git pull"
 ```
