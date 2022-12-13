@@ -5,6 +5,7 @@
   "scripts": {
     "start": "dotenv -e .env -e .api.env expo start -c",
     "start:android": "yarn start --android",
+    "build:android:dev": "yarn eas build --profile development --platform android --no-wait",
     "build:android:preview": "yarn eas build --profile preview --platform android --no-wait"
   },
   "dependencies": {
