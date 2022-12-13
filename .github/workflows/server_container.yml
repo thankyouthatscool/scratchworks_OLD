@@ -87,4 +87,4 @@ jobs:
       - name: Publish update
         run: |
           cd apps/inertiion
-          eas update --profile preview --platform android
+          eas update --auto
