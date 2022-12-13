@@ -154,7 +154,7 @@ export const SignUpScreen = ({
           onPress={handleSubmit(onSubmit)}
         >
           <AuthScreenButtonText>
-            {signUpIsLoading ? "Signing Up..." : "Sign Up"}
+            {signUpIsLoading ? "Signing Up..." : "Sign Up!!!"}
           </AuthScreenButtonText>
         </AuthScreenButton>
       </View>

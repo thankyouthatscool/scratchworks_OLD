@@ -6,6 +6,13 @@ module.exports = {
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
+    updates: {
+      fallbackToCacheTimeout: 0,
+      url: "https://u.expo.dev/ec9386aa-6995-41ce-9fe4-5185f7fde0ae",
+    },
+    runtimeVersion: {
+      policy: "sdkVersion",
+    },
     extra: {
       apiUrl: process.env.apiUrl,
       eas: { projectId: "ec9386aa-6995-41ce-9fe4-5185f7fde0ae" },
@@ -14,9 +21,6 @@ module.exports = {
       image: "./assets/splash.png",
       resizeMode: "contain",
       backgroundColor: "#ffffff",
-    },
-    updates: {
-      fallbackToCacheTimeout: 0,
     },
     assetBundlePatterns: ["**/*"],
     ios: {

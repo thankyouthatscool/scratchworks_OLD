@@ -3,12 +3,12 @@ name: Build server container
 on:
   push:
     branches:
-      - "main"
       - "development"
 
 jobs:
   docker:
-    runs-on: ubuntu-20.04
+    name: Build images
+    runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -30,8 +30,9 @@ jobs:
           tags: ozahnitko/scratchworks-backend-server:dev-latest
 
   update_server:
+    name: Update server
     needs: docker
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Update
         env:
@@ -48,3 +49,42 @@ jobs:
             docker run -d --name scratchworks-backend-server --network container:postgres ozahnitko/scratchworks-backend-server:dev-latest &&
             docker image prune --force
           "
+
+  update_app:
+    name: EAS Update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+          cache: yarn
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Find yarn cache
+        id: yarn-cache-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Restore cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Publish update
+        run: |
+          cd apps/inertiion
+          eas update --profile preview --platform android
