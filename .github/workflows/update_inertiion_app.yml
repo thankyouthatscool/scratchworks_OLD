@@ -39,12 +39,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Update secrets
-        env:
-          SERVER_HOST: ${{ secrets.SERVER_HOST }}
-        run: |
-          yarn ts-node utils/eas.ts
-
       - name: Publish update
         run: |
           cd apps/inertiion

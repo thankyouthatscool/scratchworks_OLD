@@ -6,8 +6,6 @@ import { Text, TextInput, View } from "react-native";
 import Toast from "react-native-root-toast";
 import { z } from "zod";
 
-import Constants from "expo-constants";
-
 import {
   AuthScreenButton,
   AuthScreenButtonText,
@@ -120,8 +118,6 @@ export const SignUpScreen = ({
 
   return (
     <ScreenContainer>
-      <Text>{Constants.expoConfig?.extra?.APPLICATION_NAME}</Text>
-      <Text>{Constants.expoConfig?.extra?.CLI_TEST}</Text>
       <SignUpScreenTextInput
         control={control}
         defaultValue={email || ""}
