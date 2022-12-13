@@ -42,4 +42,7 @@ jobs:
       - name: Publish update
         run: |
           cd apps/inertiion
+
+          eas secret:create --scope project --name ACTIONS_TEST --value ZOOP --type string
+
           eas update --auto
