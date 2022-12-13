@@ -45,7 +45,7 @@ jobs:
         run: |
           yarn ts-node utils/eas.ts
 
-      # - name: Publish update
-      #   run: |
-      #     cd apps/inertiion
-      #     eas update --auto
+      - name: Publish update
+        run: |
+          cd apps/inertiion
+          eas update --auto
