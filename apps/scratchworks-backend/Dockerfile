@@ -11,4 +11,10 @@ RUN apk add openssl1.1-compat
 RUN npm run db:generate
 RUN npm run build
 
+ARG NODE_ENV
+ARG SECRET
+
+ENV NODE_ENV=$NODE_ENV
+ENV SECRET=$SECRET
+
 CMD ["npm", "run", "start:prod"]
