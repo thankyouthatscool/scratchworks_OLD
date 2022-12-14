@@ -15,6 +15,7 @@ export * from "./trpc";
 config();
 
 const NODE_ENV = process.env.NODE_ENV;
+const SECRET = process.env.SECRET;
 
 const app = express();
 
@@ -27,8 +28,10 @@ app.use(
   trpcExpress.createExpressMiddleware({ router: appRouter, createContext })
 );
 
-const startServer = () => {
-  const PORT = process.env.SERVER_PORT || 5001;
+const startServer = (passedPort?: number) => {
+  const PORT = passedPort || process.env.SERVER_PORT || 5000;
+
+  console.log(SECRET);
 
   app.listen(PORT, () => {
     console.log(`Server is listening on PORT ${PORT}...`);
@@ -44,7 +47,7 @@ const main = async () => {
 
       updateAppApiUrl(tunnelData);
 
-      startServer();
+      startServer(5001);
     } catch (err) {
       if (err instanceof AxiosError) {
         console.error(err.message);

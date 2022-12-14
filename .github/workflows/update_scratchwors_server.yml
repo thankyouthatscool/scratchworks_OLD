@@ -1,4 +1,4 @@
-name: Update Scratchworks Server
+name: Update Scratchworks server
 
 on:
   push:

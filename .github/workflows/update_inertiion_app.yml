@@ -1,4 +1,4 @@
-name: Update INERTiiON Application
+name: Update INERTiiON app
 
 on:
   push:
