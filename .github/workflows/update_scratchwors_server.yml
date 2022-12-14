@@ -25,7 +25,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         env:
-          secret: ${{ secrets.SECRET }}
+          SECRET: ${{ secrets.SECRET }}
         with:
           context: "{{defaultContext}}:apps/scratchworks-backend"
           push: true
