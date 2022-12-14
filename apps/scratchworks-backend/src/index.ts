@@ -14,6 +14,7 @@ export * from "./trpc";
 
 config();
 
+const DATABASE_URL = process.env.DATABASE_UEL;
 const NODE_ENV = process.env.NODE_ENV;
 const SECRET = process.env.SECRET;
 
@@ -31,6 +32,7 @@ app.use(
 const startServer = (passedPort?: number) => {
   const PORT = passedPort || process.env.SERVER_PORT || 5000;
 
+  console.log(DATABASE_URL);
   console.log(SECRET);
 
   app.listen(PORT, () => {
