@@ -38,6 +38,8 @@ const signUp = publicProcedure
         userData,
       };
     } catch (e) {
+      console.log(e);
+
       if (e instanceof Prisma.PrismaClientKnownRequestError) {
         const metaTarget = e?.meta?.target as string[];
 

@@ -28,7 +28,7 @@ app.use(
 );
 
 const startServer = () => {
-  const PORT = process.env.SERVER_PORT || 5000;
+  const PORT = process.env.SERVER_PORT || 5001;
 
   app.listen(PORT, () => {
     console.log(`Server is listening on PORT ${PORT}...`);

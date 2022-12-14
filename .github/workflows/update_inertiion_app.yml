@@ -1,4 +1,4 @@
-name: Build application
+name: Update INERTiiON Application
 
 on:
   push:

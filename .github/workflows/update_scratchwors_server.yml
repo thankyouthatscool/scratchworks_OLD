@@ -1,4 +1,4 @@
-name: Build server
+name: Update Scratchworks Server
 
 on:
   push:
