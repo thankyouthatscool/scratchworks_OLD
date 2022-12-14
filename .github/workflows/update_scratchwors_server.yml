@@ -25,8 +25,8 @@ jobs:
       - name: SEC
         env:
           SECRET: ${{ secrets.SECRET }}
-          run: |
-            echo ${SECRET}
+        run: |
+          echo ${SECRET}
 
       - name: Build and push
         uses: docker/build-push-action@v3
