@@ -22,17 +22,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: SEC
-        env:
-          SECRET: ${{ secrets.SECRET }}
-        run: |
-          echo ${SECRET}
-
       - name: Build and push
         uses: docker/build-push-action@v3
-        env:
-          SECRET: ${{ secrets.SECRET }}
         with:
+          build-args: |
+            SECRET=${{ secrets.SECRET }}
           context: "{{defaultContext}}:apps/scratchworks-backend"
           push: true
           tags: ozahnitko/scratchworks-backend-server:dev-latest
