@@ -27,6 +27,7 @@ jobs:
         with:
           build-args: |
             SECRET=${{ secrets.SECRET }}
+            NODE_ENV=prod
           context: "{{defaultContext}}:apps/scratchworks-backend"
           push: true
           tags: ozahnitko/scratchworks-backend-server:dev-latest
