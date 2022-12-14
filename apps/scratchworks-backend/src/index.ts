@@ -14,7 +14,7 @@ export * from "./trpc";
 
 config();
 
-const DATABASE_URL = process.env.DATABASE_UEL;
+const DATABASE_URL = process.env.DATABASE_URL;
 const NODE_ENV = process.env.NODE_ENV;
 const SECRET = process.env.SECRET;
 
