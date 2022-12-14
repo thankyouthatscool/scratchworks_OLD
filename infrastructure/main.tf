@@ -36,7 +36,7 @@ resource "aws_instance" "scratchworks_instance" {
   vpc_security_group_ids = ["sg-0423be618a834b918"]
 
   tags = {
-    Name = "Test Terraform EC2 instance"
+    Name = "scratchworks instance"
   }
 }
 

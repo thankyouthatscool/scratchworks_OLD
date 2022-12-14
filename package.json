@@ -12,13 +12,14 @@
     ]
   },
   "scripts": {
-    "build:image:server": "cd ./apps/scratchworks-backend && docker build . -t ozahnitko/scratchworks-backend-server:latest",
-    "initialize:container:server": "docker run -d --name scratchworks-backend-server --network container:postgres ozahnitko/scratchworks-backend-server:latest",
+    "build:image:server": "cd ./apps/scratchworks-backend && docker build . -t ozahnitko/scratchworks-backend-server:dev-latest",
+    "initialize:container:server": "docker run -d --name scratchworks-backend-server --network container:postgres ozahnitko/scratchworks-backend-server:dev-latest",
+    "initialize:container:server:nd": "docker run --name scratchworks-backend-server --network container:postgres ozahnitko/scratchworks-backend-server:dev-latest",
     "open:all": "yarn open:app & yarn open:server",
     "open:app": "code ./apps/inertiion",
     "open:server": "code ./apps/scratchworks-backend",
-    "pull:image:server": "docker pull ozahnitko/scratchworks-backend-server:latest",
-    "push:image:server": "docker push ozahnitko/scratchworks-backend-server:latest",
+    "pull:image:server": "docker pull ozahnitko/scratchworks-backend-server:dev-latest",
+    "push:image:server": "docker push ozahnitko/scratchworks-backend-server:dev-latest",
     "remove:container:server": "docker rm scratchworks-backend-server",
     "start:container:server": "docker start scratchworks-backend-server",
     "start:services:dev": "docker compose -f ./apps/scratchworks-backend/docker-compose-dev.yml -p scratchworks-backend-dev up -d",
