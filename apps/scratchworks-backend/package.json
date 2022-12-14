@@ -15,7 +15,7 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev --name",
     "dev": "nodemon",
-    "start:prod": "NODE_ENV=prod SECRET=SECRET dotenv -e .env node ./build/src/index.js"
+    "start:prod": "NODE_ENV=prod SECRET=${SECRET} dotenv -e .env node ./build/src/index.js"
   },
   "dependencies": {
     "@prisma/client": "^4.7.1",
