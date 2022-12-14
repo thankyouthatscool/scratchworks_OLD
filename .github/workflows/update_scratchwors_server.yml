@@ -22,6 +22,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: SEC
+        env:
+          SECRET: ${{ secrets.SECRET }}
+          run: |
+            echo ${SECRET}
+
       - name: Build and push
         uses: docker/build-push-action@v3
         env:
