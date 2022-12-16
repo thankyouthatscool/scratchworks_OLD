@@ -82,7 +82,7 @@ jobs:
         run: |
           cd infrastructure
           echo "$SSH_KEY" > key && chmod 600 key
-          ssh -o StrictHostKeyChecking=no -i key ${USERNAME}@$(terraform output dns_address) "
+          ssh -o StrictHostKeyChecking=no -i key ${USERNAME}@$(terraform output --raw dns_address) "
             docker pull ozahnitko/scratchworks-backend-server:dev-latest &&
             docker stop scratchworks-backend-server &&
             docker rm scratchworks-backend-server &&
