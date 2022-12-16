@@ -86,3 +86,11 @@ jobs:
 
           dns_address=$(terraform output --raw dns_address)
           echo $dns_address
+
+          ssh -o StrictHostKeyChecking=no -i key ${USERNAME}@$dns_address "
+            docker pull ozahnitko/scratchworks-backend-server:dev-latest &&
+            docker stop scratchworks-backend-server &&
+            docker rm scratchworks-backend-server &&
+            docker run -d --name scratchworks-backend-server --network container:postgres ozahnitko/scratchworks-backend-server:dev-latest &&
+            docker image prune --force
+          "
