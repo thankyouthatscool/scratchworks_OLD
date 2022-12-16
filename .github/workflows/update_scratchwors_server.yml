@@ -82,7 +82,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
         run: |
           cd infrastructure
-          echo "$SSH_KEY" > key && chmod 600 key
+          terraform output --raw private_key > key && chmod 600 key
 
           dns_address=$(terraform output --raw dns_address)
           echo $dns_address
