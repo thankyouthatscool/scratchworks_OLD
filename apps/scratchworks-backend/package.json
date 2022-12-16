@@ -12,6 +12,7 @@
   "scripts": {
     "prebuild": "rm -rf build",
     "build": "tsc",
+    "db:deploy": "dotenv -e .env prisma migrate deploy",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev --name",
     "dev": "nodemon",

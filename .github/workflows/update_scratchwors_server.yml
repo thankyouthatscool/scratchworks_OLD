@@ -36,10 +36,23 @@ jobs:
           tags: ozahnitko/scratchworks-backend-server:dev-latest
 
   update_server:
+    name: Setup Terraform
+
     name: Update server
     needs: docker
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Terraform Format
+        id: fmt
+        run: |
+          cd infrastructure
+          terraform fmt
+
       - name: Update
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
