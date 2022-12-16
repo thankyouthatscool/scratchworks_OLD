@@ -2,6 +2,8 @@
 
 ## Bash Scripts
 
+1
+
 ### Restarting the server
 
 ```bash
