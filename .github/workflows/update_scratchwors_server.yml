@@ -36,8 +36,6 @@ jobs:
           tags: ozahnitko/scratchworks-backend-server:dev-latest
 
   update_server:
-    name: Setup Terraform
-
     name: Update server
     needs: docker
     runs-on: ubuntu-latest
