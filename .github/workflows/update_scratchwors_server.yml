@@ -69,6 +69,11 @@ jobs:
           cd infrastructure
           terraform validate -no-color
 
+      - name: Terraform Output
+        run: |
+          cd infrastructure
+          terraform output dns_address
+
       # - name: Update
       #   env:
       #     SSH_KEY: ${{ secrets.SSH_KEY }}
