@@ -37,7 +37,7 @@ jobs:
 
   update_server:
     name: Update server
-    needs: docker
+    # needs: docker
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
