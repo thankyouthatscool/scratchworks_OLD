@@ -21,7 +21,7 @@ const SECRET = process.env.SECRET;
 const app = express();
 
 app.get("/", (_, res) => {
-  return res.status(200).json({ message: "ok" });
+  return res.status(200).json({ message: "ok, it's here now" });
 });
 
 app.use(
